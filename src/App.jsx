@@ -9,11 +9,16 @@ function App() {
 
   async function handleNews(query) {
     setLoader(true);
-    let respones = await axios.get(
-      `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${apiKey}`
-    );
-    setNewsArticle(respones.data.articles);
-    setLoader(false);
+    try{
+      let respones = await axios.get(
+        `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${apiKey}`
+      );
+      setNewsArticle(respones.data.articles);
+      setLoader(false);
+    }
+    catch(e){
+      console.log(e);
+    }
   }
   return (
     <div className=" max-h-max  sm:overflow-hidden  decoration-4 sm:min-h-[1500px] w-screen bg-[#00246B]">
