@@ -11,7 +11,7 @@ function App() {
     setLoader(true);
     try{
       let respones = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${apiKey}`
+        `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
       );
       setNewsArticle(respones.data.articles);
       setLoader(false);
