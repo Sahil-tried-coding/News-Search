@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SearchBox from "./component/SearchBox";
 import Spinner from "./component/Spinner";
-import axios from "axios";
 function App() {
   let apiKey = "3a377b159da0423ab438435956b16853";
   const [newsArticle, setNewsArticle] = useState([]);
@@ -10,10 +9,11 @@ function App() {
   async function handleNews(query) {
     setLoader(true);
     try{
-      let respones = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
+      let respones = await fetch(
+        `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${apiKey}`
       );
-      setNewsArticle(respones.data.articles);
+      let data = await respones.json()
+      setNewsArticle(data.articles);
       setLoader(false);
     }
     catch(e){
