@@ -37,7 +37,7 @@ function App() {
         ) : (
           <div className="flex sm:overflow-hidden h-max-h  flex-wrap justify-center gap-4 p-3">
             {/* <ul className="flex flex-col sm:gird sm:grid-cols-2 sm:grid-rows-3 sm:w-full p-3 "> */}
-            {newsArticle.map((article, index) => (
+          {newsArticle.map((article, index) => (
               <div
                 key={index}
                 className="border  sm:w-[300px] max-w-max border-white p-3   my-5"
