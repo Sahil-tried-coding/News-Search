@@ -2,7 +2,7 @@ import { useState } from "react";
 import SearchBox from "./component/SearchBox";
 import Spinner from "./component/Spinner";
 function App() {
-  let apiKey = "3a377b159da0423ab438435956b16853";
+  // let apiKey = "3a377b159da0423ab438435956b16853";
   const [newsArticle, setNewsArticle] = useState([]);
   const [loader, setLoader] = useState(false);
 
@@ -10,7 +10,7 @@ function App() {
     setLoader(true);
     try{
       let respones = await fetch(
-        `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${apiKey}`
+        `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=3a377b159da0423ab438435956b16853`
       );
       let data = await respones.json()
       setNewsArticle(data.articles);
